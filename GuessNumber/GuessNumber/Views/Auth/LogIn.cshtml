@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LogIn</title>
+</head>
+<body>
+    <div>
+        <h2>Log In</h2>
+
+        @Html.ValidationSummary(true)
+
+        @using (Html.BeginForm())
+        {
+            @Html.EditorForModel()
+            <p>
+                <button type="submit">Log In</button>
+            </p>
+        }
+    </div>
+</body>
+</html>
