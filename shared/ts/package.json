@@ -1,0 +1,7 @@
+{
+  "name": "@guessnumber/shared",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/smoke.test.js"
+  }
+}

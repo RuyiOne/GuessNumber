@@ -1,0 +1,115 @@
+{
+  "rulesets": {
+    "classic4": {
+      "count": 3024,
+      "first": "1234",
+      "last": "9876",
+      "sha256": "6b37a8ec602249ac2d84befe5eaeef9bb7b922e62d1305d3b6187fec49bac946"
+    },
+    "classic5": {
+      "count": 15120,
+      "first": "12345",
+      "last": "98765",
+      "sha256": "5efc356e91148d53b8ba8b0665a3205a01d866f36ca98d22338f9af3b2b57f2e"
+    },
+    "pool0to9": {
+      "count": 5040,
+      "first": "0123",
+      "last": "9876",
+      "sha256": "cb4afc421eb354a3fb29d2c45330f642deb6b6841de481acf407247f61778556"
+    },
+    "repeatsAllowed": {
+      "count": 6561,
+      "first": "1111",
+      "last": "9999",
+      "sha256": "15db58542a6577710a893a4f6226b5d5e8b1dbf6021d771a4433825f446e39e3"
+    }
+  },
+  "scores": [
+    {
+      "guess": "1234",
+      "secret": "1234",
+      "dead": 4,
+      "wounded": 0,
+      "points": 40
+    },
+    {
+      "guess": "1234",
+      "secret": "1235",
+      "dead": 3,
+      "wounded": 0,
+      "points": 30
+    },
+    {
+      "guess": "1234",
+      "secret": "1243",
+      "dead": 2,
+      "wounded": 2,
+      "points": 24
+    },
+    {
+      "guess": "1234",
+      "secret": "1245",
+      "dead": 2,
+      "wounded": 1,
+      "points": 22
+    },
+    {
+      "guess": "1234",
+      "secret": "5678",
+      "dead": 0,
+      "wounded": 0,
+      "points": 0
+    },
+    {
+      "guess": "1234",
+      "secret": "5671",
+      "dead": 0,
+      "wounded": 1,
+      "points": 2
+    },
+    {
+      "guess": "1234",
+      "secret": "4321",
+      "dead": 0,
+      "wounded": 4,
+      "points": 8
+    },
+    {
+      "guess": "5687",
+      "secret": "5678",
+      "dead": 2,
+      "wounded": 2,
+      "points": 24
+    }
+  ],
+  "filter": {
+    "ruleset": "classic4",
+    "secret": "9876",
+    "steps": [
+      {
+        "guess": "1234",
+        "secret": "9876",
+        "dead": 0,
+        "wounded": 0,
+        "points": 0
+      },
+      {
+        "guess": "5678",
+        "secret": "9876",
+        "dead": 1,
+        "wounded": 2,
+        "points": 14
+      },
+      {
+        "guess": "2468",
+        "secret": "9876",
+        "dead": 0,
+        "wounded": 2,
+        "points": 4
+      }
+    ],
+    "remainingCount": 11,
+    "remainingSha256": "f412968d161b6c9fe7f38c59c4b167157b771059457c700427b4b5a67328d7e6"
+  }
+}

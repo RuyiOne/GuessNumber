@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GuessNumber</title>
+  <link rel="stylesheet" href="/play.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">GuessNumber</p>
+      <h1>Find the number</h1>
+      <p id="status" class="status">Sign in, then play against the computer.</p>
+    </header>
+
+    <section id="account" class="card">
+      <form id="auth-form">
+        <label>Name <input id="display-name" autocomplete="nickname" required /></label>
+        <label>Email <input id="email" type="email" autocomplete="username" required /></label>
+        <label>Password <input id="password" type="password" autocomplete="current-password" minlength="8" required /></label>
+        <div class="row">
+          <button type="submit">Sign in</button>
+          <button type="button" id="register" class="secondary">Create an account</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="lobby" class="card hidden">
+      <p>You are signed in as <strong id="who"></strong>.</p>
+      <label>Computer
+        <select id="agent">
+          <option value="swor">Sampling without replacement</option>
+          <option value="dqn">DQN</option>
+          <option value="double">Double DQN</option>
+          <option value="duelling">Duelling DQN</option>
+          <option value="doubleDuelling">Double + Duelling</option>
+        </select>
+      </label>
+      <label class="check"><input id="per" type="checkbox" disabled /> Prioritised experience replay</label>
+      <p class="muted">The learned agents play by sampling without replacement until a trained model is installed.</p>
+      <button id="play" type="button">Play against the computer</button>
+    </section>
+
+    <section id="secret-panel" class="card hidden">
+      <form id="secret-form">
+        <label>Your secret
+          <input id="secret" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="4 different digits, 1 to 9" required />
+        </label>
+        <p id="secret-note" class="note" role="status"></p>
+        <button type="submit">Set secret</button>
+      </form>
+    </section>
+
+    <section id="board" class="hidden">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>You</th><th>Computer</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+          <tfoot>
+            <tr>
+              <td>Score <strong id="score-you">0</strong></td>
+              <td>Score <strong id="score-computer">0</strong></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <form id="guess-form" class="card">
+        <label>Your guess
+          <input id="guess" inputmode="numeric" maxlength="4" autocomplete="off" />
+        </label>
+        <p id="guess-note" class="note" role="status"></p>
+        <div id="keys" class="keys"></div>
+        <div class="row">
+          <button type="submit">Guess</button>
+          <button type="button" id="clear" class="secondary">Clear</button>
+          <button type="button" id="resign" class="secondary">Resign</button>
+        </div>
+      </form>
+      <form id="change-form" class="card">
+        <p>Type the whole new secret. It must use four different digits from 1 to 9, and it must change exactly two positions. This uses your turn and costs 25 points.</p>
+        <p>Your secret <strong id="current-secret" class="digits"></strong></p>
+        <label>New secret
+          <input id="new-secret" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="Four digits, 1 to 9" />
+        </label>
+        <p id="change-note" class="note" role="status" aria-live="polite">Type the new secret. A number that is not allowed is refused here.</p>
+        <button type="submit" id="change-submit" class="secondary">Change number (−25)</button>
+      </form>
+    </section>
+
+    <canvas id="confetti" class="hidden" aria-hidden="true"></canvas>
+    <div id="result" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="result-title">
+      <div class="card dialog">
+        <h2 id="result-title">Game over</h2>
+        <p id="result-copy">Would you like to continue, or exit and see your record?</p>
+        <div class="row">
+          <button type="button" id="continue">Continue</button>
+          <button type="button" id="exit" class="secondary">Exit</button>
+        </div>
+      </div>
+    </div>
+
+    <section id="record" class="card hidden">
+      <h2>Your record</h2>
+      <p id="record-lead" class="muted"></p>
+      <table>
+        <thead>
+          <tr><th>Opponent</th><th>Won</th><th>Lost</th></tr>
+        </thead>
+        <tbody id="record-rows"></tbody>
+      </table>
+      <button type="button" id="record-back">Play again</button>
+    </section>
+  </main>
+  <script src="/signalr.min.js"></script>
+  <script src="/play.js"></script>
+</body>
+</html>

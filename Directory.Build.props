@@ -1,0 +1,9 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <!-- Spec requests .NET 9. This machine has the .NET 10 SDK only (10.0.401); the code targets net10.0. -->
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,45 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+TestResults/
+*.DotSettings.user
+*.db
+*.db-shm
+*.db-wal
+
+# Node
+node_modules/
+dist/
+.vite/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+*.pyc
+.mypy_cache/
+.ruff_cache/
+runs/
+paper_figs/
+*.onnx
+wandb/
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+appsettings.*.local.json
+**/secrets.json
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
