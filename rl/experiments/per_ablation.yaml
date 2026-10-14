@@ -1,0 +1,35 @@
+name: per-ablation
+configuration: r1
+episodes: 1000
+max_steps: 25
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+agents: [dqn]
+per: [true]
+out: runs/per-ablation
+variants:
+  - {ruleset: classic4, reward: shaped, number_change: false}
+# Run this file once for each triple below. The runner reads the shared block,
+# so copy one alpha, one beta and one buffer_size in before a run.
+hyperparameters:
+  shared:
+    learning_rate: 0.0005
+    batch_size: 64
+    gamma: 0.99
+    epsilon: 1.0
+    epsilon_min: 0.01
+    epsilon_decay: 0.995
+    buffer_size: 100000
+    alpha: 0.6
+    beta: 0.4
+    beta_anneal: true
+    hidden: 128
+    target_every: 50
+    legacy_per: false
+ablation:
+  alpha: [0.2, 0.4, 0.6, 0.8]
+  beta: [0.4, 0.6, 1.0]
+  buffer_size: [10000, 100000]
+sensitivity:
+  trials: 30
+  seeds: [100, 101, 102, 103, 104]
+  episodes: 1000

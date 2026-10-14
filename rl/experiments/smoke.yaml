@@ -1,0 +1,24 @@
+name: smoke
+configuration: r1
+episodes: 2
+max_steps: 8
+seeds: [0]
+agents: [dqn]
+per: [false]
+references: [swor]
+out: runs/smoke
+variants:
+  - {ruleset: classic4, reward: legacy, number_change: false}
+hyperparameters:
+  shared:
+    learning_rate: 0.01
+    batch_size: 4
+    gamma: 0.99
+    epsilon: 0.2
+    epsilon_min: 0.05
+    epsilon_decay: 0.99
+    buffer_size: 64
+    hidden: 16
+    target_every: 2
+    legacy_per: false
+    beta_anneal: false

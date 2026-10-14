@@ -1,0 +1,33 @@
+name: r1-variants
+configuration: r1
+episodes: 1000
+max_steps: 25
+seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+agents: [dqn, double, duelling, double_duelling]
+per: [false, true]
+references: [swor, random]
+out: runs/r1-variants
+# One shared hyperparameter set for every new variant. The published paper tuned
+# DQN and DQN+PER separately; this file does not repeat that split.
+variants:
+  - {ruleset: classic4, reward: shaped, number_change: false}
+  - {ruleset: classic4, reward: sparse, number_change: false}
+  - {ruleset: classic4, reward: shaped, number_change: true, notify: true}
+  - {ruleset: classic4, reward: shaped, number_change: true, notify: false}
+  - {ruleset: classic5, reward: shaped, number_change: false}
+  - {ruleset: pool0to9, reward: shaped, number_change: false}
+hyperparameters:
+  shared:
+    learning_rate: 0.0005
+    batch_size: 64
+    gamma: 0.99
+    epsilon: 1.0
+    epsilon_min: 0.01
+    epsilon_decay: 0.995
+    buffer_size: 100000
+    alpha: 0.6
+    beta: 0.4
+    beta_anneal: true
+    hidden: 128
+    target_every: 50
+    legacy_per: false
